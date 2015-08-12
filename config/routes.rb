@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+  resources :home_teachers
+  get 'members' => 'members#index'
+  get 'members/:id' => 'members#show', as: :member
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

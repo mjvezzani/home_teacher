@@ -21,7 +21,7 @@ describe HomeTeacher do
   end
 
   context "associations" do
-    it "has a compaion" do
+    it "has a companion" do
       ht.companion = ht2
       ht2.companion = ht
 
@@ -35,18 +35,6 @@ describe HomeTeacher do
       ht.companion = ht3
       expect(ht.companion.full_name).to eq "Chris Klomp"
       expect(ht.companion.full_name).not_to eq "John Tanner"
-    end
-
-    it "updates both home teachers when a companion id is changed" do
-      ht.companion = ht2
-      ht2.companion = ht
-      expect(ht.companion.full_name).to eq "John Tanner"
-      expect(ht2.companion.full_name).to eq "Mike Vezzani"
-
-      ht.companion = ht3
-      expect(ht.companion.full_name).to eq "Chris Klomp"
-      expect(ht3.companion.full_name).to eq "Mike Vezzani"
-      expect(ht2.companion).to be nil
     end
   end
 end
