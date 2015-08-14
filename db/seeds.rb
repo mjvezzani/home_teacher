@@ -21,3 +21,13 @@ end
 3.times do
   FactoryGirl.create(:member, lastname: "Rowan")
 end
+
+Member.find(4).update(type: "HomeTeacher")
+Member.find(7).update(type: "HomeTeacher")
+Member.find(12).update(type: "HomeTeacher")
+Member.find(16).update(type: "HomeTeacher")
+
+HomeTeacher.first.update(companion_id: HomeTeacher.second.id)
+HomeTeacher.second.update(companion_id: HomeTeacher.first.id)
+HomeTeacher.third.update(companion_id: HomeTeacher.fourth.id)
+HomeTeacher.fourth.update(companion_id: HomeTeacher.third.id)
