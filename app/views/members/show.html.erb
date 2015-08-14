@@ -1,2 +1,3 @@
 <h2><%= @member.full_name %></h2>
 <p><%= @member.email %></p>
+<p>This member is part of the <%= link_to @member.family.surname, family_path(@member.family) %> family.</p>

@@ -6,6 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-25.times do
-  FactoryGirl.create(:member)
+5.times do
+  FactoryGirl.create(:member, lastname: "Jones")
+end
+
+4.times do
+  FactoryGirl.create(:member, lastname: "Smith")
+end
+
+5.times do
+  FactoryGirl.create(:member, lastname: "Perkins")
+end
+
+3.times do
+  FactoryGirl.create(:member, lastname: "Rowan")
 end

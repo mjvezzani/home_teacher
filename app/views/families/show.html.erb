@@ -1,0 +1,4 @@
+<h1>Here are the members of the <%= @family.surname %> family</h1>
+<% @family_members.each do |member| %>
+  <p><%= member.full_name %></p>
+<% end %>

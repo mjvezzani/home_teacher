@@ -1,0 +1,9 @@
+<h1>The companionships</h1>
+
+<% @companionships.each do |companionship| %>
+  <div class='companionship'>
+    <% companionship.home_teachers.each do |home_teacher| %>
+      <p><%= link_to home_teacher.full_name, member_path(home_teacher) %></p>
+    <% end %>
+  </div>
+<% end %>

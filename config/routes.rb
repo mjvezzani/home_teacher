@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
   
-  resources :home_teachers
   get 'members' => 'members#index'
   get 'members/:id' => 'members#show', as: :member
+
+  get 'home_teachers' => 'home_teachers#index'
+  get 'home_teachers/:id' => 'home_teachers#show', as: :home_teacher
+
+  get 'families' => 'families#index'
+  get 'families/:id' => 'families#show', as: :family
+
+  get 'companionships' => 'companionships#index'
+  get 'companionships/:id' => 'companionships#show', as: :companionship
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
