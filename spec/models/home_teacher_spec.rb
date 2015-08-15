@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe HomeTeacher do
-  let(:ht) { FactoryGirl.create(:member, lastname: "Smith", type: "HomeTeacher" }
-  let(:ht2) { FactoryGirl.create(:member, lastname: "Tanner", type: "HomeTeacher" }
-  let(:ht3) { FactoryGirl.create(:member, lastname: "Klomp", type: "HomeTeacher" }
+  let(:companionship) { Companionship.create }
+  let(:ht) { HomeTeacher.create(firstname: "Chris", lastname: "Klomp", email: "ck@net.net") }
+  let(:ht2) { HomeTeacher.create(firstname: "Jeremy", lastname: "Koontz", email: "ck@net.net") } 
+  let(:ht3) { HomeTeacher.create(firstname: "John", lastname: "Tanner", email: "jt@net.net") } 
 
   context "validations" do
     it "is valid with a firstname and lastname" do
@@ -23,20 +24,10 @@ describe HomeTeacher do
 
   context "associations" do
     it "has a companion" do
-      ht.companion = ht2
-      ht2.companion = ht
+      companionship.home_teachers << [ht, ht2]
 
-      expect(ht.companion.full_name).to eq "#{ ht2.full_name }"
-      expect(ht2.companion.full_name).to eq "#{ ht.full_name }"
+      expect(ht.companions.second.full_name).to eq "#{ ht2.full_name }"
+      expect(ht2.companions.first.full_name).to eq "#{ ht.full_name }"
     end
-
-    it "only has one companion"
-      # Need to create a method that ensures that companions
-      # belong to each other, and when reassignment occurs
-      # the previous companionship association is broken
-      # and companion_ids get set correctly.
-
-    it "belongs to one companion"
-      
   end
 end

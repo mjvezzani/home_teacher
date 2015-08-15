@@ -27,6 +27,18 @@ class HomeTeachersController < ApplicationController
     @home_teacher = HomeTeacher.find(params[:id])
   end
 
+  def update
+    @home_teacher = HomeTeacher.find(params[:id])
+
+    if @home_teacher.update(home_teacher_params)
+      flash[:success] = "Home Teacher Created"
+      redirect_to home_teachers_path
+    else
+      flash[:error] = "Something went wrong"
+      render :edit
+    end
+  end
+
   private
 
   def home_teacher_params

@@ -1,5 +1,8 @@
 class Companionship < ActiveRecord::Base
+  has_many :families
   has_many :home_teachers
-  has_many :home_teaching_assignments
-  has_many :families, through: :home_teaching_assignments
+
+  def companions
+    home_teachers
+  end
 end

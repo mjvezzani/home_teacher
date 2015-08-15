@@ -1,5 +1,6 @@
 class Family < ActiveRecord::Base
+  belongs_to :companionship
   has_many :members
-  has_one :home_teaching_assignment
-  has_one :companionship, through: :home_teaching_assignment
+
+  delegate :home_teachers, to: :companionship
 end
