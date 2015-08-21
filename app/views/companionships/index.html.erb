@@ -1,9 +1,16 @@
-<h1>The companionships</h1>
+<h1>Here are the companionships</h1>
 
-<% @companionships.each do |companionship| %>
-  <div class='companionship'>
-    <% companionship.home_teachers.each do |home_teacher| %>
-      <p><%= link_to home_teacher.full_name, member_path(home_teacher) %></p>
+<%= link_to "Create new companionship", new_companionship_path, class: "btn btn-success" %>
+<br/>
+
+<div class='row'>
+  <% @companionships.each do |companionship| %>
+    <%= link_to companionship_path(companionship) do%> 
+      <div class="col-md-2 well well-sm">
+        <% companionship.home_teachers.each do |home_teacher| %>
+          <p><%= home_teacher.full_name %></p>
+        <% end %>
+      </div>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>

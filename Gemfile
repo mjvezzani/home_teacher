@@ -1,13 +1,19 @@
 source 'https://rubygems.org'
 
+gem "twitter-bootstrap-rails"
+
 group :development, :test do
+  gem 'pry-rails'
+  gem 'pry'
   gem "rspec-rails", "~> 3.1.0"
   gem "factory_girl_rails"
   gem "faker"
+  gem "capybara"
 end
 
 group :test do
   gem "database_cleaner", "~> 1.3.0"
+  gem "launchy"
 end
 
 

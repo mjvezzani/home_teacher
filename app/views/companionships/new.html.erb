@@ -1,0 +1,9 @@
+<h1>Create a new companionship</h1>
+
+<%= form_tag "/companionships" do %>
+  <%= label_tag 'first_home_teacher_id', 'Companion 1' %>
+  <%= select_tag(:first_home_teacher_id, options_for_select(HomeTeacher.all.map{|x| [x.full_name, x.id]}))%>
+  <%= submit_tag("Create companionship") %>
+  <%= label_tag 'second_home_teacher_id', 'Companion 2' %>
+  <%= select_tag(:second_home_teacher_id, options_for_select(HomeTeacher.all.map{|x| [x.full_name, x.id]}))%>
+<% end %>

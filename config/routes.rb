@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  get '/' => 'static_pages#welcome'
   
   get 'members' => 'members#index'
   get 'members/:id' => 'members#show', as: :member
@@ -9,8 +11,7 @@ Rails.application.routes.draw do
   get 'families' => 'families#index'
   get 'families/:id' => 'families#show', as: :family
 
-  get 'companionships' => 'companionships#index'
-  get 'companionships/:id' => 'companionships#show', as: :companionship
+  resources :companionships
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
